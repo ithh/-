@@ -1,6 +1,6 @@
 import time
 
-class Solution1:
+class Solution:
     def twoSum(self, nums, target):
         hashmap={}
         for ind,num in enumerate(nums):
