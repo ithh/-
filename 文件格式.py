@@ -18,6 +18,7 @@ str1 = '''
 
 '''%s
 
+# 可通过vscode代码块实现
 
 # print(str1)
 with open(filename + '.py', 'w', encoding='utf-8') as f:
