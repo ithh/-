@@ -44,3 +44,16 @@ class Solution:
             if cur_len > max_len:max_len = cur_len
             lookup.add(s[i])
         return max_len
+
+# hash表实现
+class Solution2:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        start,res,newdic=-1,0,{}
+        for i,c in enumerate(s):#按循环顺序，把s中的元素挨个放到新的newdic里去
+            if c in newdic and newdic[c]>start:
+                start=newdic[c]#重新定位start指针
+                newdic[c]=i#给这个重复字母赋上顺序值
+            else:#newdic里还没有这个重复字母，且不需要重新定位指针（重复字母在start之前，说明已经算过了，略掉）
+                    newdic[c]=i
+                    res=max(res,i-start)   #更新最大子串长度   
+        return res
